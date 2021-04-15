@@ -1,22 +1,28 @@
-const fetch = require("node-fetch");
-const fs = require ("fs");
-const url = "http://jsonplaceholder.typicode.com/posts";
-let jsonString;
+const fetch = require("node-fetch");             
+const fs = require ("fs");                        
+const url = "http://jsonplaceholder.typicode.com/posts";                                       let jsonString;
 
 fetch(url)
    .then(res=>res.json())
-   .then(json=>{                                         
-       jsonString = JSON.stringify(json,null,2);         
-       fs.mkdir("result",err=>{
-          if(err) throw err
-       })
-       fs.writeFile("./result/posts.json",jsonString,err=>{   
-          if(err) throw err;
-       })
-   })                                            
-   .then(_=>{
-       console.log(`"posts.json" file has been created succesfully \n cd into "./result" to see the file`)
+   .then(json=>{
+      jsonString = JSON.stringify(json,null,2);
+      fs.mkdir("result",err=>{
+         if(err){
+	    console.log('warnining: A folder named "result" exists already and is ready for the placement of the "posts.json" file.')
+         }else{
+             console.log('A folder named "result" has been created and is ready for the placement of the "posts.json" file')
+        }
+      });
+      fs.writeFile("./result/posts.json",jsonString,"utf8",err=>{
+         if(err){
+	    console.log(err)
+	 }else{
+	     setTimeout(_=>{
+                console.log('A file named "posts.json" has been created inside the "result" folder. cd into "./result" to view the file')
+	     },1500)
+	 }
+      });
    })
    .catch(err=>{
-       if (err) throw err
+      if (err) console.log(err)
    })
