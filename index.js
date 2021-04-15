@@ -19,8 +19,8 @@ fetch(url)
 	    console.log(err);
 	 }else{
 	     setTimeout(_=>{
-		console.log("Operation Successfull :)");
-                console.log('A file named "posts.json" has been created inside the "result" directory. cd into "./result" to view the file');
+		console.log("Operation Successfull :).");
+                console.log('A file named "posts.json" has been created inside the "result" directory. cd into "./result" to view the file.');
 	     },1500)
 	 }
       });
