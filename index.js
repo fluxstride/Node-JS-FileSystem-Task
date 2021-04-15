@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");             
 const fs = require ("fs");                        
-const url = "http://jsonplaceholder.typicode.com/posts";                                       let jsonString;
+const url = "http://jsonplaceholder.typicode.com/posts";                                      
+let jsonString;
 
 fetch(url)
    .then(res=>res.json())
