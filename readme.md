@@ -4,6 +4,6 @@ In order to succesfully run the script the following npm packages are required.
 - node-fetch
 
 ## Install npm packages 
-run the command 
+run the command below to install all the required npm packages. 
 > <p> npm i </p>
-To install all the required npm packages 
+
